@@ -1,0 +1,1 @@
+document.body.style.backgroundColor = "#ADD8E6"; // Altera a cor de fundo para azul claro

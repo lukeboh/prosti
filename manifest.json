@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Google Background Changer",
+  "version": "1.0",
+  "description": "Muda o background da página do Google.",
+  "permissions": [
+    "https://www.google.com.br/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com.br/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
