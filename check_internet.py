@@ -11,11 +11,11 @@ urls = [
     'http://www.facebook.com',
     'http://www.instagram.com',
     'http://www.wikipedia.org',
-    'http://www.amazon.com',
-    'http://www.twitter.com',
+    'https://resultados.tse.jus.br/oficial/app/index.html',
+    'https://www.tse.jus.br',
     'http://www.linkedin.com',
     'http://www.netflix.com',
-    'http://www.yahoo.com'
+    'https://tn3.tse.jus.br'
 ]
 
 # Dicionário de descrições breves dos códigos HTTP
