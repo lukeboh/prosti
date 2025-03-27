@@ -1,11 +1,31 @@
 {
-  "manifest_version": 2,
-  "name": "Google Background Changer",
+  "manifest_version": 3,
+  "name": "Pro STI",
   "version": "1.0",
-  "description": "Muda o background da página do Google.",
+  "description": "Verifica a conexão com a internet. Muda o background da página do Google.",
+  "background": {
+    "service_worker": "background.js"
+  },
   "permissions": [
-    "https://www.google.com.br/"
+    "alarms",
+    "storage",
+    "activeTab",
+    "scripting",
+	"https://www.google.com.br/"
   ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://www.google.com.br/*"],
