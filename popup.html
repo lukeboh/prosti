@@ -1,12 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Check Internet</title>
-  <script src="popup.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grune Pro Extension</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            width: 500px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .switch-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            color: #333;
+        }
+        .switch-label input {
+            display: none;
+        }
+        .slider {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            background-color: #ccc;
+            border-radius: 34px;
+            margin-left: 10px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0d8aed;
+        }
+    </style>
 </head>
 <body>
-  <h1>Check Internet</h1>
-  <button id="checkButton">Check Now</button>
-  <div id="result"></div>
+    <h1 id="extensionVersion"></h1>
+    <label for="keywords">Palavras-chave:</label>
+    <input type="text" id="keywords" class="form-control" placeholder="Palavras-chave separadas por vírgula">
+    <br>
+    <label class="switch-label" for="enableAlert">Habilitar alerta
+        <input type="checkbox" id="enableAlert">
+        <span class="slider"></span>
+    </label>
+    <br>
+    <label class="switch-label" for="showOnlyWithProblem">Exibir apenas instâncias com alerta
+        <input type="checkbox" id="showOnlyWithProblem">
+        <span class="slider"></span>
+    </label>
+    <br>
+    <label class="switch-label" for="rotateTabs">Alternar entre abas abertas
+        <input type="checkbox" id="rotateTabs">
+        <span class="slider"></span>
+    </label>
+    <input type="number" id="timeRotateTabs" class="form-control" alt="Tempo em segundos" aria-label="Tempo para alternar entre abas abertas">
+    <br>
+    <label class="switch-label" for="scrollToEnd">Rolar página do grafana
+        <input type="checkbox" id="scrollToEnd">
+        <span class="slider"></span>
+    </label>    
+    <script src="popup.js"></script>
+    <br>    
+    <p>Habilitar alerta: quando identificada qualquer uma das palavras-chaves cadastradas, será exibida uma notificação. Uma nova notificação só será exibida após 5 minutos. </p>    
 </body>
 </html>

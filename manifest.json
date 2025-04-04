@@ -1,35 +1,59 @@
 {
   "manifest_version": 3,
   "name": "Pro STI",
-  "version": "1.0",
-  "description": "Verifica a conexão com a internet. Muda o background da página do Google.",
-  "background": {
-    "service_worker": "background.js"
-  },
-  "permissions": [
+  "version": "0.1",  
+  "description": "Professional Empowering STI",
+  
+  "permissions": [    
     "alarms",
-    "storage",
-    "activeTab",
+    "activeTab",    
     "scripting",
-	"https://www.google.com.br/"
-  ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
-    }
-  },
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },
+    "storage",
+    "declarativeContent",
+	"tabs",	         
+    "idle",	        
+    "power",	        
+	"notifications"     
+  ],  
+
   "content_scripts": [
     {
-      "matches": ["https://www.google.com.br/*"],
-      "js": ["content.js"]
-    }
+      "matches": ["http://*/dash-cadastro-eleitoral*", "https://*/dash-cadastro-eleitoral*"],      
+      "js": ["content-grune-css.js","content-grune.js"]
+    },
+    {
+      "matches": ["https://cad-reports.tse.jus.br/*total_de_raes_digitados_no_dia*"],
+      "js": ["content-reports.js"]
+    },
+    {
+      "matches": ["https://sei.tse.jus.br/*", "https://sip.tse.jus.br/*"],
+      "js": ["content-sei.js"]
+    }      
+  ],
+  
+  "action": {
+     "default_icon": {
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+    },
+	"default_popup": "popup.html"
+  },  
+  "background": {
+    "service_worker": "background.js",
+	  "type": "module"
+  },  
+  "icons": {
+	"16": "icons/icon16.png",
+	"48": "icons/icon48.png",
+	"128": "icons/icon128.png"
+  },  
+  "host_permissions": [
+    "<all_urls>",
+    "http://*.tse.jus.br/*",
+    "https://*.tse.jus.br/*",
+    "http://grune/*",
+    "https://grune/*",
+    "https://cad-reports.tse.jus.br/"
   ]
 }
